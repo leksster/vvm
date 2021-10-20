@@ -12,7 +12,8 @@ module Vvm
           choices = [
             { name: 'Insert a coin', value: :insert_coin, **maybe_out_of_stock },
             { name: 'Pick the product', value: :pick_product },
-            { name: 'Dispense', value: :dispense, **maybe_empty_balance, **maybe_no_change }
+            { name: 'Dispense', value: :dispense, **maybe_empty_balance, **maybe_no_change },
+            { name: 'Exit', value: :exit }
           ]
 
           result = prompt.select('Main menu:', choices)
