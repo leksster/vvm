@@ -23,7 +23,7 @@ module Vvm
     private
 
     def config
-      @config ||= YAML.load_file(File.join(GEM_HOME, 'config.yaml'))
+      @config ||= YAML.load_file(File.join(GEM_HOME, 'config/default.yaml'))
     end
 
     def build_inventory

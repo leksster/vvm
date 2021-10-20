@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = spec.homepage
 
-  spec.files = [*Dir.glob('lib/**/*', File::FNM_DOTMATCH), 'config.yml']
+  spec.files = [*Dir.glob('{config,lib}/**/*', File::FNM_DOTMATCH)]
 
   spec.bindir        = 'exe'
   spec.executables   = ['vvm']
