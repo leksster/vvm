@@ -5,7 +5,7 @@ module Vvm
     module Command
       class << self
         def call(env, name, options)
-          # $stdout.clear_screen
+          $stdout.clear_screen
 
           class_for(name).new(env).call(**options)
         end

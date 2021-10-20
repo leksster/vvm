@@ -9,7 +9,7 @@ module Vvm
 
   class OutOfStock < Error; end
 
-  class MachineEmpty < Error; end
+  class MachineIsEmpty < Error; end
 
   class InvalidInput < Error; end
 end

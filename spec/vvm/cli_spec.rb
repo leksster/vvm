@@ -11,6 +11,8 @@ class StringIO
 end
 
 RSpec.describe Vvm::CLI::Environment do
+  before { allow($stdout).to receive(:clear_screen) }
+
   let(:prompt) { TTY::Prompt::Test.new }
 
   before do

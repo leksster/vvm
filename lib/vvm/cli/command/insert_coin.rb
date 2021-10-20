@@ -16,8 +16,6 @@ module Vvm
 
           machine.insert(result)
 
-          # byebug
-
           env.call(:show_main_menu)
         end
       end

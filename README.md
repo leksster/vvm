@@ -1,6 +1,6 @@
 # Vvm
 
-Virtual Vending Machine CLI applicatio which should emulate the goods buying operations and change calculation.
+Virtual Vending Machine CLI application which should emulate the goods buying operations and change calculation.
 
 ## Installation
 
@@ -20,7 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To start interaction run:
+
+    $ vvm
 
 ## Development
 
