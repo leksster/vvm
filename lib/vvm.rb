@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'tty-prompt'
+
 require_relative 'vvm/version'
 require_relative 'vvm/cli'
 require_relative 'vvm/machine'

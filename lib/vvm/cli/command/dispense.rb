@@ -9,7 +9,7 @@ module Vvm
         def call
           prompt.say("Balance: $#{machine.balance}")
 
-          formatted_coins = machine.dispense.map { "#{_1.qty} x $#{_1.value}" }.join(', ')
+          formatted_coins = machine.dispense.filter { _1.qty.positive? }.map { "#{_1.qty} x $#{_1.value}" }.join(', ')
 
           env.call(:confirm_dispense, { formatted_coins: formatted_coins })
         end

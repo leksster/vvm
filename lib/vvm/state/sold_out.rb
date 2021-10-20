@@ -6,6 +6,10 @@ module Vvm
       def insert(_coin)
         raise MachineEmpty
       end
+
+      def pick(_product_name)
+        raise MachineEmpty
+      end
     end
   end
 end

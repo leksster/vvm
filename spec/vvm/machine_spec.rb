@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'byebug'
 
 RSpec.describe Vvm::Machine do
   let(:machine) { Vvm::Machine.new }
