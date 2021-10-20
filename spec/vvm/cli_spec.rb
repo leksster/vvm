@@ -26,7 +26,7 @@ RSpec.describe Vvm::CLI::Environment do
 
   describe 'show_main_menu' do
     it 'shows main menu ' do
-      prompt.input << 'd' << 'd' << ' '
+      prompt.input << 'd' << ' '
       prompt.input.rewind
 
       expect(subject).to receive(:call).with(:show_main_menu).and_call_original
@@ -36,12 +36,11 @@ RSpec.describe Vvm::CLI::Environment do
 
       expect(prompt.output.string).to eq([
         "Balance: $0\n\e[?25lMain menu: \e[90m(Press ↑/↓ arrow to move and Enter to select)",
-        "\e[0m\n\e[32m‣ Insert a coin\e[0m\n  Pick the product\n\e[31m✘\e[0m Dispense (empty balance)",
-        "\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1GMain menu: \n  Insert a coin\n\e[32m‣ Pick the product",
-        "\e[0m\n\e[31m✘\e[0m Dispense (empty balance)",
-        "\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1GMain menu: \n  ",
-        "Insert a coin\n\e[32m‣ Pick the product\e[0m\n\e[31m✘\e[0m Dispense (empty balance)",
-        "\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1GMain menu: \e[32mPick the product\e[0m\n\e[?25h"
+        "\e[0m\n\e[32m‣ Insert a coin\e[0m\n  Pick the product\n\e[31m✘\e[0m Dispense (empty balance)\n  ",
+        "Exit\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1GMain menu: \n  ",
+        "Insert a coin\n\e[32m‣ Pick the product\e[0m\n\e[31m✘\e[0m Dispense (empty balance)\n  ",
+        "Exit\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1G\e[1A\e[2K\e[1GMain menu: ",
+        "\e[32mPick the product\e[0m\n\e[?25h"
       ].join)
     end
   end
