@@ -1,0 +1,29 @@
+inventory:
+  - name: Coca Cola
+    price: 2.00
+    qty: 2
+  - name: Sprite
+    price: 2.50
+    qty: 2
+  - name: Fanta
+    price: 2.70
+    qty: 3
+  - name: Orange Juice
+    price: 3.00
+    qty: 1
+  - name: Water
+    price: 3.25
+    qty: 0
+coins:
+  - value: 5.00
+    qty: 5
+  - value: 3.00
+    qty: 5
+  - value: 2.00
+    qty: 5
+  - value: 1.00
+    qty: 5
+  - value: 0.50
+    qty: 5
+  - value: 0.25
+    qty: 5

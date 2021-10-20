@@ -1,8 +1,18 @@
 # frozen_string_literal: true
 
-require_relative "vvm/version"
-
-module Vvm
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative 'vvm/version'
+require_relative 'vvm/cli'
+require_relative 'vvm/machine'
+require_relative 'vvm/model/coin'
+require_relative 'vvm/model/product'
+require_relative 'vvm/error'
+require_relative 'vvm/state'
+require_relative 'vvm/cli/environment'
+require_relative 'vvm/cli/command'
+require_relative 'vvm/cli/command/base'
+require_relative 'vvm/cli/command/insert_coin'
+require_relative 'vvm/cli/command/show_main_menu'
+require_relative 'vvm/cli/command/pick_product'
+require_relative 'vvm/cli/command/dispense'
+require_relative 'vvm/cli/command/confirm_dispense'
+require_relative 'vvm/cli/command/confirm_product_pick'
