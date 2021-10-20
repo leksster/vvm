@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'YAML'
-require 'forwardable'
-
 module Vvm
   class Machine
     extend Forwardable

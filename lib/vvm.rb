@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'tty-prompt'
+require 'yaml'
+require 'forwardable'
 
 require_relative 'vvm/version'
 require_relative 'vvm/cli'
