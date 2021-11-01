@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'debug'
-
 module Vvm
   class Dispenser
     def initialize(amount, coins)
