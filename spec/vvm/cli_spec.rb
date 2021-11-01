@@ -2,7 +2,6 @@
 
 require 'tty-prompt'
 require 'tty/prompt/test'
-require 'byebug'
 
 class StringIO
   def ioctl(*)

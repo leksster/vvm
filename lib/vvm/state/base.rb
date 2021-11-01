@@ -3,6 +3,10 @@
 module Vvm
   module State
     class Base
+      extend Forwardable
+
+      def_delegators :machine, :coins, :balance
+
       def initialize(machine)
         @machine = machine
       end
@@ -15,21 +19,12 @@ module Vvm
         raise NotImplementedError
       end
 
-      def dispense # rubocop:disable Metrics/AbcSize
-        machine.coins.each_with_object([]) do |coin, acc|
-          next if coin.value > machine.balance
+      def dispense
+        result = Vvm::Dispenser.new(balance, coins).call
 
-          unbalansed_qty = (machine.balance / coin.value).floor
-          qty_to_return = unbalansed_qty > coin.qty ? coin.qty : unbalansed_qty
+        machine.balance -= result.sum { _1.qty * _1.value }
 
-          coin_to_return = coin.dup
-          coin_to_return.qty = qty_to_return
-
-          acc.push(coin_to_return)
-          coin.qty -= qty_to_return
-
-          machine.balance = (machine.balance - (coin.value * qty_to_return)).round(2)
-        end
+        result
       end
 
       private

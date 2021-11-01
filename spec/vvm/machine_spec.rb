@@ -101,6 +101,12 @@ RSpec.describe Vvm::Machine do
   end
 
   describe '#dispense' do
+    it 'mutates balance' do
+      machine.insert(5)
+
+      expect { machine.dispense }.to change { machine.balance }.from(5).to(0)
+    end
+
     context 'when balance is 0' do
       it 'returns empty array' do
         expect(machine.dispense).to eq []
@@ -112,6 +118,56 @@ RSpec.describe Vvm::Machine do
 
       it 'returns 1 coin' do
         expect(machine.dispense).to include(an_object_having_attributes(value: 5, qty: 1))
+      end
+    end
+
+    context 'when balance is 9' do
+      before do
+        allow_any_instance_of(Vvm::Machine).to receive(:build_coins).and_return(
+          [
+            Vvm::Model::Coin.new(5, 1),
+            Vvm::Model::Coin.new(3, 1),
+            Vvm::Model::Coin.new(2, 2),
+            Vvm::Model::Coin.new(1, 0),
+            Vvm::Model::Coin.new(0.5, 5),
+            Vvm::Model::Coin.new(0.25, 5)
+          ]
+        )
+
+        machine.insert(9)
+      end
+
+      it 'returns 3 coins' do
+        expect(machine.dispense).to contain_exactly(
+          an_object_having_attributes(value: 5, qty: 1),
+          an_object_having_attributes(value: 2, qty: 2)
+        )
+      end
+    end
+
+    context 'when balance is 14' do
+      before do
+        allow_any_instance_of(Vvm::Machine).to receive(:build_coins).and_return(
+          [
+            Vvm::Model::Coin.new(5, 2),
+            Vvm::Model::Coin.new(3, 0),
+            Vvm::Model::Coin.new(2, 1),
+            Vvm::Model::Coin.new(1, 1),
+            Vvm::Model::Coin.new(0.5, 0),
+            Vvm::Model::Coin.new(0.25, 5)
+          ]
+        )
+
+        machine.insert(14)
+      end
+
+      it 'returns 8 coins' do
+        expect(machine.dispense).to contain_exactly(
+          an_object_having_attributes(value: 5, qty: 2),
+          an_object_having_attributes(value: 2, qty: 1),
+          an_object_having_attributes(value: 1, qty: 1),
+          an_object_having_attributes(value: 0.25, qty: 4)
+        )
       end
     end
 
